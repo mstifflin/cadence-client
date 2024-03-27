@@ -2,13 +2,11 @@ steps:
   - label: "fossa analyze"
     agents:
       queue: "buildkite-gcp-large"
-      docker: "*"
     command: ".buildkite/scripts/fossa.sh"
 
   - label: ":golang: unit-test"
     agents:
       queue: "buildkite-gcp-large"
-      docker: "*"
     commands:
       - "make unit_test"
       - ".buildkite/scripts/gen_coverage_metadata.sh .build/metadata.txt"
@@ -38,7 +36,6 @@ steps:
   - label: ":golang: integration-test-sticky-off"
     agents:
       queue: "buildkite-gcp-large"
-      docker: "*"
     command: "make integ_test_sticky_off"
     artifact_paths:
       - ".build/*/coverage/*.out"
@@ -53,7 +50,6 @@ steps:
   - label: ":golang: integration-test-sticky-on"
     agents:
       queue: "buildkite-gcp-large"
-      docker: "*"
     command: "make integ_test_sticky_on"
     artifact_paths:
       - ".build/*/coverage/*.out"
@@ -68,7 +64,6 @@ steps:
   - label: ":golang: integration-test-grpc-adapter"
     agents:
       queue: "buildkite-gcp-large"
-      docker: "*"
     command: "make integ_test_grpc"
     artifact_paths:
       - ".build/*/coverage/*.out"
@@ -85,7 +80,6 @@ steps:
   - label: ":golang: code-coverage"
     agents:
       queue: "buildkite-gcp-large"
-      docker: "*"
     command: ".buildkite/scripts/gocov.sh"
     plugins:
       - docker-compose#v3.0.0:
