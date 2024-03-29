@@ -1,7 +1,7 @@
 steps:
   - label: "fossa analyze"
     agents:
-      queue: "buildkite-gcp-large"
+      queue: "buildkite-gcp-medium"
     command: ".buildkite/scripts/fossa.sh"
 
   - label: ":golang: unit-test"
