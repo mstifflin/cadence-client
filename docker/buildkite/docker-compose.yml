@@ -116,7 +116,7 @@ services:
       - "GO111MODULE=on"
     volumes:
       - ../../:/go/src/go.uber.org/cadence
-      - /usr/bin/buildkite-agent:/usr/bin/buildkite-agent
+      - /usr/local/bin/buildkite-agent:/usr/bin/buildkite-agent
 
 networks:
   services-network:
