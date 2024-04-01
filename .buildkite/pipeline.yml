@@ -79,7 +79,8 @@ steps:
 
   - label: ":golang: code-coverage"
     agents:
-      queue: "buildkite-gcp-large"
+      # queue: "buildkite-gcp-large"
+      queue: "workers"
     command: ".buildkite/scripts/gocov.sh"
     plugins:
       - docker-compose#v3.0.0:
